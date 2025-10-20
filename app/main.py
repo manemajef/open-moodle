@@ -30,7 +30,7 @@ def main():
     context = p.chromium.launch_persistent_context(
         user_data_dir = "./browser_data", 
         headless=False, 
-        channel = "chrome" 
+        # channel = "chrome" 
     )
     # context = browser 
     page = context.pages[0]  if context.pages else context.new_page() 
