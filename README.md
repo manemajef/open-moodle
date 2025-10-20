@@ -1,41 +1,74 @@
-## Open And login to Moodle
+# Moodle Desktop
 
-**PROBLEM**: As a student, You need to open [Moodle](https://moodle.tau.ac.il/) multiple times a day, somtimes even dozens! and since it requires three credentials (ID, username, password) Youre password mannager cant insert it autmaticly - and you have to manualy type youre id. this is liveable, but annyoing.
+**Problem**: As a student, you need to open [Moodle](https://moodle.tau.ac.il/) multiple times a day, sometimes dozens of times. Since it requires three separate credentials (ID, username, password), password managers can't auto-fill everything and you end up manually typing your ID every single time. It's liveable, but annoying.
 
-**Solution**
-Create a script which does that autmaticly for you.
+**Solution**: A desktop app that automatically logs you in and opens Moodle in a clean browser interface with tab support.
 
-**inputs it needs**:
+## Features
 
-- youre specific UNI moodle url `https://moodle.yourUni.com`.
-- youre credentials:
+- Auto-login with saved credentials
+- Multi-tab browsing (right-click links for "Open in new tab")
+- Persistent sessions (stays logged in between launches)
+- Clean desktop app interface
 
-  - password
-  - username
-  - id
+## Installing
 
-  ### Working
+Clone the repo and install dependencies:
 
-  - do the logic in a chromium window, on close kills the script. **NEEDS CHROME**.
+```bash
+git clone <repo-url>
+cd open-moodle
 
-  ##### TODOS
+# If you have uv installed:
+uv sync
 
-  - [] wrap in a desktop app
-  - [] prompt user to add credentials
-  - [] have ui settings
-  - [] work in default browser without chromium
+# Otherwise:
+python -m venv .venv
+source .venv/bin/activate
+pip install .
+```
 
-  ## Installing
+## Running
 
-  - Clone the repo
-  - make sure u have python installed
-  - if uv is installed run `uv sync`
-  - if no iv installed:
+**GUI version (default):**
+```bash
+python -m app.main_gui
+```
 
-  ```bash
-  python -m venv .venv
-  source .venv/bin/activate
-  pip install .
-  ```
+**CLI version (opens in Chromium):**
+```bash
+python -m app.main
+```
 
-  - run `python3 main.py`
+## Configuration
+
+Credentials are stored in `~/Library/Application Support/Moodle Desktop/settings.json`
+
+You can manually edit this file or the settings dialog will be added soon.
+
+## Building for macOS
+
+To create a `.dmg` installer:
+
+```bash
+# Build the app
+uv run pyinstaller Moodle.spec --clean --noconfirm
+
+# Create DMG
+./build_dmg.sh
+```
+
+## TODOs
+
+- [ ] Settings dialog UI for managing credentials
+- [ ] UI polish and better styling
+- [ ] Proper DMG distribution with installer
+- [ ] Per-user credential management
+- [ ] Cross-platform support (Windows, Linux)
+- [ ] Custom URL configuration for other universities
+
+## Tech Stack
+
+- Python 3.13
+- PyQt6 + QtWebEngine for the browser
+- Pydantic for config management

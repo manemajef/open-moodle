@@ -1,34 +1,41 @@
 # -*- mode: python ; coding: utf-8 -*-
+from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
+# Collect all PyQt6 modules
+pyqt6_imports = collect_submodules('PyQt6')
 
 a = Analysis(
-    ['main.py'],
-    pathex=[],
+    ['app/main_gui.py'],
+    pathex=['.'],
     binaries=[],
     datas=[],
-    hiddenimports=['playwright.sync_api', 'playwright._impl._driver'],
+    hiddenimports=pyqt6_imports + [
+        'PyQt6.sip',
+        'PyQt6.QtCore',
+        'PyQt6.QtGui',
+        'PyQt6.QtWidgets',
+        'PyQt6.QtWebEngineWidgets',
+        'PyQt6.QtWebEngineCore',
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
     noarchive=False,
-    optimize=0,
 )
+
 pyz = PYZ(a.pure)
 
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.datas,
     [],
-    name='Moodle',
+    exclude_binaries=True,
+    name='Moodle Desktop',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
@@ -36,9 +43,24 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
 )
-app = BUNDLE(
+
+coll = COLLECT(
     exe,
-    name='Moodle.app',
+    a.binaries,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name='Moodle Desktop',
+)
+
+app = BUNDLE(
+    coll,
+    name='Moodle Desktop.app',
     icon=None,
-    bundle_identifier=None,
+    bundle_identifier='com.yourname.moodle-desktop',
+    info_plist={
+        'NSPrincipalClass': 'NSApplication',
+        'NSHighResolutionCapable': 'True',
+    },
 )
