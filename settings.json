@@ -1,0 +1,10 @@
+{
+  "url": "https://moodle.tau.ac.il/",
+  "login_url": "https://moodle.tau.ac.il/login/index.php",
+  "logged_url": "https://moodle.tau.ac.il/local/mycourses/",
+  "selectors": {
+    "password": "Ecom_Password",
+    "username": "Ecom_User_ID",
+    "id": "Ecom_User_Pid"
+  }
+}
