@@ -1,0 +1,8 @@
+2025/10/21-19:29:48.285 a77529 Reusing MANIFEST /Users/rotemsemah/Scripts/open-moodle/browser_data/Default/Local Storage/leveldb/MANIFEST-000001
+2025/10/21-19:29:48.287 a77529 Recovering log #64
+2025/10/21-19:29:48.287 a77529 Level-0 table #67: started
+2025/10/21-19:29:48.293 a77529 Level-0 table #67: 26628 bytes OK
+2025/10/21-19:29:48.297 a77529 Delete type=0 #64
+2025/10/21-19:30:48.305 a7752c Level-0 table #70: started
+2025/10/21-19:30:48.310 a7752c Level-0 table #70: 31371 bytes OK
+2025/10/21-19:30:48.315 a7752c Delete type=0 #68

@@ -1,0 +1,14 @@
+2025/10/21-19:25:02.651 a7596e Reusing MANIFEST /Users/rotemsemah/Scripts/open-moodle/browser_data/Default/Local Storage/leveldb/MANIFEST-000001
+2025/10/21-19:25:02.653 a7596e Recovering log #60
+2025/10/21-19:25:02.655 a7596e Level-0 table #63: started
+2025/10/21-19:25:02.660 a7596e Level-0 table #63: 27914 bytes OK
+2025/10/21-19:25:02.663 a7596e Delete type=0 #60
+2025/10/21-19:25:02.667 a75971 Compacting 4@0 + 1@1 files
+2025/10/21-19:25:02.674 a75971 Generated table #65@0: 90 keys, 22816 bytes
+2025/10/21-19:25:02.674 a75971 Compacted 4@0 + 1@1 files => 22816 bytes
+2025/10/21-19:25:02.675 a75971 compacted to: files[ 0 1 0 0 0 0 0 ]
+2025/10/21-19:25:02.675 a75971 Delete type=2 #63
+2025/10/21-19:25:02.675 a75971 Delete type=2 #61
+2025/10/21-19:25:02.675 a75971 Delete type=2 #58
+2025/10/21-19:25:02.675 a75971 Delete type=2 #55
+2025/10/21-19:25:02.675 a75971 Delete type=2 #53
