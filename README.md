@@ -24,6 +24,23 @@ python3 main.py
 python3 main.py tau
 ```
 
+### Recommended - add alias
+
+for example with `zsh` , assuming the path is `~/scripts/moodle`:
+
+```bash
+echo "alias moodle ='~/scripts/moodle/.venv/bin/python3 ~/scripts/moodle/main.py'" >> ~/.zshrc
+```
+
+now you can simply write `moodle` in terminal and your moodle would open up logged in.
+
+```
+
+```
+
+```
+
+
 ## Q&A
 
 **can it work with other universities?**
@@ -35,3 +52,4 @@ python3 main.py tau
 
 - [ ] get credentials and save them to system using a TUI
 - [ ] make it cross platform and cross university
+```

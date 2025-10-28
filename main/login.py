@@ -8,7 +8,8 @@ import time
 
 
 def login(config):
-    driver = webdriver.Chrome()
+    options = Options()
+    driver = webdriver.Chrome(options = options)
     driver.get(config["login_url"])
     wait = WebDriverWait(driver, 20)
 
