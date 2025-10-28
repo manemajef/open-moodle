@@ -1,9 +1,17 @@
 from main.login import login
 import time
+import sys
+from main.config import config
+
 
 def main():
-    driver = login()
-    driver.get("https://moodle.tau.ac.il/local/mycourses/")
+    if len(sys.argv) >= 2 and sys.argv[1] == "tau":
+        config["login_url"] = (
+            "https://nidp.tau.ac.il/nidp/idff/sso?id=10&sid=0&option=credential&sid=0&target=https%3A%2F%2Fmytau.tau.ac.il%2F"
+        )
+        config["url"] = "https://my.tau.ac.il/TAU_Student/"
+    driver = login(config)
+    driver.get(config["url"])
     # Keep browser open
     print("Browser is open. Press Ctrl+C or close the browser window to exit...")
     try:

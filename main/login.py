@@ -4,11 +4,10 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from . config import config
 import time
 
 
-def login():
+def login(config):
     driver = webdriver.Chrome()
     driver.get(config["login_url"])
     wait = WebDriverWait(driver, 20)
