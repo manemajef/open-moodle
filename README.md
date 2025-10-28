@@ -30,16 +30,10 @@ for example with `zsh` , assuming the path is `~/scripts/moodle`:
 
 ```bash
 echo "alias moodle ='~/scripts/moodle/.venv/bin/python3 ~/scripts/moodle/main.py'" >> ~/.zshrc
+
 ```
 
 now you can simply write `moodle` in terminal and your moodle would open up logged in.
-
-```
-
-```
-
-```
-
 
 ## Q&A
 
@@ -52,4 +46,7 @@ now you can simply write `moodle` in terminal and your moodle would open up logg
 
 - [ ] get credentials and save them to system using a TUI
 - [ ] make it cross platform and cross university
+
+```
+
 ```
