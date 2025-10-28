@@ -1,9 +1,19 @@
-# automate the boring login proccess for TAU's website and the Moodle
+# Auto login to TAU's Moodle
 
-- save credentials under `.env` as:
-  - USERNAME = "your username"
-  - ID = your-id-number
-  - PASSWORD = "your password"
+#### Setup Credentials
+
+for security reasons (obvisuly) your login details must remain hidden and never published. therefore, inorder for the script to work follow these instriuctions:
+
+1. go to root dir and create a `.env` file: `cd path/to/dir && touch .env`
+2. Enter your credentials:
+
+```.env
+USERNAME={yourUsername}
+PASSWORD={yourPasswod}
+ID={yourIDNumber}
+```
+
+## Use the script:
 
 **Activate `.venv`**:
 
@@ -45,8 +55,5 @@ now you can simply write `moodle` in terminal and your moodle would open up logg
 ## Roadmap:
 
 - [ ] get credentials and save them to system using a TUI
+
 - [ ] make it cross platform and cross university
-
-```
-
-```
