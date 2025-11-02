@@ -9,13 +9,16 @@ import time
 
 def login(config):
     options = Options()
-    driver = webdriver.Chrome(options = options)
+    driver = webdriver.Chrome(options=options)
     driver.get(config["login_url"])
     wait = WebDriverWait(driver, 20)
 
     for f in ["username", "id", "password"]:
         field_name = config["selectors"][f]
-        field = wait.until(EC.presence_of_element_located((By.ID, field_name)))
+        # field = wait.until(EC.presence_of_element_located((By.ID, field_name)))
+
+        field = wait.until(EC.element_to_be_clickable((By.ID, field_name)))
+        field.clear()
         field.send_keys(config[f])
 
     login_btn = wait.until(EC.element_to_be_clickable((By.ID, "loginButton")))
